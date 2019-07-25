@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block  body_block %}
+
+<h1>App Page</h1>
+
+{#the left part of the : is the app_name and the right part of the : is the name specified in the paths (in urls.py)#}
+<a href="{% url 'relatives:rel' %}">Link to Relative Page</a>
+<a href="{% url 'admin:index' %}">Link to Admin Page</a>
+
+{% endblock %}

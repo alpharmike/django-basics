@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.submit_btn {
+    background-color: dodgerblue;
+    margin: 20px;
+    border: none;
+    border-radius: 5px;
+    width: 3rem;
+    height: 2rem;
+}
+
+.submit_btn:hover {
+    background-color: blue;
+}
+
+h1 {
+    color: blue;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid gray;
+    border-radius: 10px;
+    margin: 20px;
+    width: 50%;
+}
+
+label {
+    margin: 10px;
+}
+
+input {
+    margin: 10px;
+}
+

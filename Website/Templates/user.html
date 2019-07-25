@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" href="{% static "css/user.css" %}">
+</head>
+<body>
+
+<h1>Available Users</h1>
+
+<div>
+    {% if user_records %}
+        <ol>
+            {% for user in user_records %}
+                <li>User Info</li>
+                <ul>
+                    <li>{{ user.first_name }}</li>
+                    <li>{{ user.last_name }}</li>
+                    <li>{{ user.email }}</li>
+                </ul>
+            {% endfor %}
+        </ol>
+    {% endif %}
+</div>
+
+</body>
+</html>
