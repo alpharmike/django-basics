@@ -5,6 +5,7 @@ from django.forms import modelform_factory
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.views.generic import View, TemplateView, ListView, DetailView
 from . import forms
 
 
@@ -103,7 +104,7 @@ def register(request):
 
 def user_login(request):
     if request.method == "POST":
-        username = request.POST.get('username')
+        username = request.POST.get('username')  # username is the name specified in html input, not the id
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)
 
@@ -124,3 +125,32 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+
+class CBView(View):
+    def get(self, request):
+        return HttpResponse("Index Page")
+
+
+class IndexView(TemplateView):
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['injection'] = 'inject'
+        return context
+
+
+#  HINT: list views return context_object_name as lowered name of the model plus _list and detail views return only the
+#  lowered case of the model's name
+
+class UserListView(ListView):
+    context_object_name = 'users'  # default is myuser_list
+    model = MyUser
+    template_name = 'user_list.html'
+
+
+class UserDetailView(DetailView):
+    context_object_name = 'user_details'  # default is myuser
+    model = MyUser
+    template_name = 'user_detail.html'

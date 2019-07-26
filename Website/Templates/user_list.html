@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_block %}
+    <h2>List of Users</h2>
+    <ol>
+        {% for user in users %}
+            <li>{{ user.firstname|concat:user.lastname }}</li>
+        {% endfor %}
+    </ol>
+{% endblock %}

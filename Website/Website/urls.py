@@ -18,7 +18,7 @@ from django.urls import path, include
 from Application import views
 
 urlpatterns = [
-    path('', views.index, name="index"),
+    # path('', views.index, name="index"),
     path('app/', include('Application.urls')),
     path('extra/', include('Application.extraurls')),
     path('users/', views.show_users, name="user"),
@@ -26,5 +26,6 @@ urlpatterns = [
     path('sign_up/', views.sign_up, name="sign_up"),
     path('register/', views.register, name="register"),
     path('logout/', views.user_logout, name="logout"),
+    path('', views.CBView.as_view(), name='index'),
     path('admin/', admin.site.urls),
 ]

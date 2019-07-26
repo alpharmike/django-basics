@@ -31,6 +31,10 @@ class SignUpForm(forms.ModelForm):
     class Meta:
         model = MyUser
         fields = '__all__'
+        # widgets = {
+        #     "first_name": forms.TextInput(attrs={'placeholder': 'Enter First Name', 'id': 'First_name'}),
+        #     "last_name": forms.TextInput(attrs={'placeholder': 'Enter Last Name', 'id': 'Last_name'}),
+        # }
 
 
 class UserForm(forms.ModelForm):
